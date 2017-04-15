@@ -3,18 +3,9 @@ package ru.dis.points;
 
 public class Point {
   public static void main(String[] args){
-    DistanceBetweenPoints dbp= new DistanceBetweenPoints;
-    double x1=2;
-    double x2= 5;
-    double y1= 1;
-    double y2= 7;
-    dbp.p1= x2-x1;
-    dbp.p2= y2-y1;
+    DistanceBetweenPoints dbp= new DistanceBetweenPoints (2,5,1,7);
 
-    System.out.println("Расстояние между двумя точками " + dbp.p1 + " и " + dbp.p2 + " на плоскости = " + distance(dbp));
+    System.out.println("Расстояние между двумя точками "+ "A("+ dbp.x1+ ";" + dbp.x2+ ")" + " и " + "B(" + dbp.y1+ ";" + dbp.y2 + ") " + "на плоскости = " + dbp.distance());
   }
 
-  public static double distance(DistanceBetweenPoints dbp) {
-    return Math.sqrt(dbp.p1* dbp.p1+dbp.p2* dbp.p2);
-  }
 }
