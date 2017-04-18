@@ -2,10 +2,16 @@ package ru.dis.points;
 
 
 public class Point {
-  public static void main(String[] args){
-    DistanceBetweenPoints dbp= new DistanceBetweenPoints (2,5,1,7);
-
-    System.out.println("Расстояние между двумя точками "+ "A("+ dbp.x1+ ";" + dbp.x2+ ")" + " и " + "B(" + dbp.y1+ ";" + dbp.y2 + ") " + "на плоскости = " + dbp.distance());
+  double x;
+  double y;
+  //public static void main(String[] args) {
+  public Point (double x, double y) {
+    this.x = x;
+    this.y = y;
+  }
+  public double distance(Point Point1, Point Point2) {
+    return Math.sqrt((Point1.x - Point2.x)*(Point1.x - Point2.x) + (Point1.y - Point2.y)*(Point1.y - Point2.y));
+  }
   }
 
-}
+

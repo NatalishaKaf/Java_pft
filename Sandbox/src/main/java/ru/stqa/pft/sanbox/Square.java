@@ -1,8 +1,6 @@
 package ru.stqa.pft.sanbox;
 
-/**
- * Created by jonik on 15.04.2017.
- */
+
 public class Square {
 
   public double l;
