@@ -15,27 +15,26 @@ public class GroupObjectsCreationTestContacts {
 
   @BeforeMethod
   public void setUp() throws Exception {
-    login();
+    login("admin", "secret");
   }
 
-  private void login() {
+  private void login(String user, String password) {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
+    wd.findElement(By.name("user")).sendKeys(user);
     wd.findElement(By.name("pass")).click();
     wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys("secret");
+    wd.findElement(By.name("pass")).sendKeys(password);
     wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
   }
 
   @Test
   public void GroupObjectsCreationTestContacts() {
-    formContacts();
     goToNewFormContact();
-    fillFormContact();
+    fillFormContact(new ObjectsContacts("fgdfg", "middleN", "xcv", "nickname", "dxfbcdvb", "cvbvcb", "dxfbgdfbg35646546", "sdfsdf12355", "email"));
     SubmitContactCreation();
     ReturnHomePage();
   }
@@ -48,54 +47,38 @@ public class GroupObjectsCreationTestContacts {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
-  private void fillFormContact() {
+  private void fillFormContact(ObjectsContacts objectsContacts) {
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys("fgdfg");
+    wd.findElement(By.name("firstname")).sendKeys(objectsContacts.getFirstname());
     wd.findElement(By.name("middlename")).click();
     wd.findElement(By.name("middlename")).clear();
-    wd.findElement(By.name("middlename")).sendKeys("xfdgfg");
+    wd.findElement(By.name("middlename")).sendKeys(objectsContacts.getMiddlename());
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys("xcv");
+    wd.findElement(By.name("lastname")).sendKeys(objectsContacts.getLastname());
     wd.findElement(By.name("nickname")).click();
     wd.findElement(By.name("nickname")).clear();
-    wd.findElement(By.name("nickname")).sendKeys("dfg");
+    wd.findElement(By.name("nickname")).sendKeys(objectsContacts.getNickname());
     wd.findElement(By.name("title")).click();
     wd.findElement(By.name("title")).clear();
-    wd.findElement(By.name("title")).sendKeys("dxfbcdvb");
+    wd.findElement(By.name("title")).sendKeys(objectsContacts.getTitle());
     wd.findElement(By.name("company")).click();
     wd.findElement(By.name("company")).clear();
-    wd.findElement(By.name("company")).sendKeys("cvbvcb");
+    wd.findElement(By.name("company")).sendKeys(objectsContacts.getCompany());
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys("dxfbgdfbg35646546");
+    wd.findElement(By.name("address")).sendKeys(objectsContacts.getAddresss());
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys("sdfsdf12355");
+    wd.findElement(By.name("home")).sendKeys(objectsContacts.getHome());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys("adefadf354");
+    wd.findElement(By.name("email")).sendKeys(objectsContacts.getEmail());
 
   }
 
   private void goToNewFormContact() {
     wd.findElement(By.linkText("add new")).click();
-  }
-
-  private void formContacts() {
-    new Actions(wd).moveToElement(wd.findElement(By.id("content"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.cssSelector("strong"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.id("content"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.id("maintable"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.linkText("Last name"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.cssSelector("th.sortable.fd-column-1"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.linkText("First name"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.cssSelector("th.sortable.fd-column-2"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.linkText("First name"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.cssSelector("th.sortable.fd-column-2"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.id("content"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.id("nav"))).build().perform();
-    new Actions(wd).moveToElement(wd.findElement(By.linkText("add new"))).build().perform();
   }
 
   @AfterMethod
