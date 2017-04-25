@@ -7,9 +7,9 @@ public class GroupDeletionContacts extends TestBase {
 
     @Test
     public void GroupDeletionContacts() {
-        app.goToFormContacts();
-        app.submitDeleteContact();
-        app.goToAlert();
-        app.goToHome();
+        app.getGroupHelper().goToFormContacts();
+        app.getGroupHelper().submitDeleteContact();
+        app.getGroupHelper().goToAlert();
+        app.getGroupHelper().goToHome();
     }
 }
