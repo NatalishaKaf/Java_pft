@@ -65,11 +65,12 @@ public class GroupHelper extends HelperBase {
   }
 
   public void goToHome() {
+
     click(By.linkText("home"));
   }
 
   public void goToAlert() {
-      wd.switchTo().alert().accept();
+    wd.switchTo().alert().accept();
   }
 
   public void submitDeleteContact() {
@@ -81,11 +82,32 @@ public class GroupHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
-    public void initGroupModification() {
+  public void initGroupModification() {
     click(By.name("edit"));
-    }
+  }
 
   public void submitGroupModification() {
     click(By.name("update"));
+  }
+
+  public void initContactModification() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+
+    //div[@id='content']/form[1]/input[22]
+  }
+  public void submitContactModification() {
+    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+  }
+
+  public void initContactView (){
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
+  }
+
+  public void initContactModifiy() {
+    click(By.name("modifiy"));
+  }
+
+  public void initvCard() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[9]/a/img"));
   }
 }
