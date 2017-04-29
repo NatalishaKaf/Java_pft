@@ -1,0 +1,36 @@
+package ru.dis.points;
+
+
+public class Point {
+  public static void main(String[] args){
+    DistanceBetweenPoints dbp= new DistanceBetweenPoints (2,5,1,7);
+
+    System.out.println("Расстояние между двумя точками "+ "A("+ dbp.x1+ ";" + dbp.x2+ ")" + " и " + "B(" + dbp.y1+ ";" + dbp.y2 + ") " + "на плоскости = " + dbp.distance());
+  }
+
+}
+
+
+
+
+
+package ru.dis.points;
+
+
+public class DistanceBetweenPoints {
+
+  public double x1;
+  public double x2;
+  public double y1;
+  public double y2;
+
+  public DistanceBetweenPoints (double x1, double x2, double y1, double y2) {
+    this.x1=x1;
+    this.x2=x2;
+    this.y1=y1;
+    this.y2=y2;
+  }
+  public double distance() {
+    return Math.sqrt((this.x2- this.x1)*(this.x2- this.x1)+ (this.y2-this.y1)*(this.y2-this.y1));
+  }
+}
