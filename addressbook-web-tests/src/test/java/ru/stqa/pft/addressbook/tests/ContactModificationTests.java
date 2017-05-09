@@ -13,12 +13,12 @@ public class ContactModificationTests extends TestBase {
         app.getGroupHelper().fillFormContact(new ContactObjects("Наталья", "ДНВ", "Долгополова", "Natalisha",
                 "Tester", "1C", "Moscow", "Korolev", "natalya-strel@yandex.ru", null), false);
         app.getGroupHelper().submitContactModification();
-        app.getGroupHelper().goToHome();
+        app.getNavigationHelper().goToHome();
         app.getGroupHelper().initContactView();
         app.getGroupHelper().initContactModifiy();
        // testContactModification ()
         app.getGroupHelper().submitContactModification();
-        app.getGroupHelper().goToHome();
+        app.getNavigationHelper().goToHome();
     }
 
 }

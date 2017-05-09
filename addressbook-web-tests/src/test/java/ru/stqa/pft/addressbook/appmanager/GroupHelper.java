@@ -76,10 +76,6 @@ public class GroupHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
-  public void goToHome() {
-
-    click(By.linkText("home"));
-  }
 
   public void goToAlert() {
     wd.switchTo().alert().accept();
