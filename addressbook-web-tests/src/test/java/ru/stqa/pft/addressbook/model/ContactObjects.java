@@ -10,8 +10,10 @@ public class ContactObjects {
   private final String addresss;
   private final String home;
   private final String email;
+  private final String group;
 
-  public ContactObjects(String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss, String home, String email) {
+  public ContactObjects(String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
+                        String home, String email, String group) {
     this.firstname = firstname;
     this.middlename = middlename;
     this.lastname = lastname;
@@ -21,6 +23,7 @@ public class ContactObjects {
     this.addresss = addresss;
     this.home = home;
     this.email = email;
+    this.group = group;
   }
 
   public String getFirstname() {
@@ -57,5 +60,9 @@ public class ContactObjects {
 
   public String getEmail() {
     return email;
+  }
+
+  public String getGroup() {
+    return group;
   }
 }

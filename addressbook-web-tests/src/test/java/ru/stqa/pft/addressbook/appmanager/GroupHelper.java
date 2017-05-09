@@ -2,8 +2,12 @@ package ru.stqa.pft.addressbook.appmanager;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import ru.stqa.pft.addressbook.model.ContactObjects;
 import ru.stqa.pft.addressbook.model.GroupObjects;
 
 public class GroupHelper extends HelperBase {
@@ -39,19 +43,26 @@ public class GroupHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void fillFormContact(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String email) {
+  public void fillFormContact(ContactObjects contactObjects,boolean creation) {
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(firstname);
-    type(By.name("middlename"), middlename);
-    type(By.name("lastname"), lastname);
-    type(By.name("nickname"), nickname);
-    type(By.name("title"), title);
-    type(By.name("company"), company);
-    type(By.name("address"), address);
-    type(By.name("home"), home);
-    type(By.name("email"), email);
+    wd.findElement(By.name("firstname")).sendKeys(contactObjects.getFirstname());
+    type(By.name("middlename"), contactObjects.getMiddlename());
+    type(By.name("lastname"), contactObjects.getLastname());
+    type(By.name("nickname"), contactObjects.getNickname());
+    type(By.name("title"), contactObjects.getTitle());
+    type(By.name("company"), contactObjects.getCompany());
+    type(By.name("address"), contactObjects.getAddresss());
+    type(By.name("home"), contactObjects.getHome());
+    type(By.name("email"), contactObjects.getEmail());
 
-  }
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+      //if (isElementPresent(By.name("new_group"))) {
+        //new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroup());
+      }
+    }
 
   public void goToNewFormContact() {
     click(By.linkText("add new"));
