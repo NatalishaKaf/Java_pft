@@ -8,16 +8,21 @@ public class ContactModificationTests extends TestBase {
     @Test
 
     public void testContactModification () {
-        app.getGroupHelper().goToFormContacts();
-        app.getGroupHelper().initContactModification();
-        app.getGroupHelper().fillFormContact(new ContactObjects("Наталья", "ДНВ", "Долгополова", "Natalisha",
+        app.getContactHelper().goToFormContacts();
+        if (! app.getContactHelper().isThereAContact()){
+            app.getContactHelper().createContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
+                    "address", "sdfsdf12355", null, "test1"));
+        }
+        app.getContactHelper().SelectContact();
+        app.getContactHelper().initContactModification();
+        app.getContactHelper().fillFormContact(new ContactObjects("Наталья", "ДНВ", "Долгополова", "Natalisha",
                 "Tester", "1C", "Moscow", "Korolev", "natalya-strel@yandex.ru", null), false);
-        app.getGroupHelper().submitContactModification();
+        app.getContactHelper().submitContactModification();
         app.getNavigationHelper().goToHome();
-        app.getGroupHelper().initContactView();
-        app.getGroupHelper().initContactModifiy();
+        app.getContactHelper().initContactView();
+        app.getContactHelper().initContactModifiy();
        // testContactModification ()
-        app.getGroupHelper().submitContactModification();
+        app.getContactHelper().submitContactModification();
         app.getNavigationHelper().goToHome();
     }
 

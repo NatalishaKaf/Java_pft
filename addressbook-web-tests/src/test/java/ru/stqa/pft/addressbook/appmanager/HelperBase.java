@@ -46,4 +46,11 @@ public class HelperBase {
         return false;
       }
       }
+
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
+  }
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
 }
