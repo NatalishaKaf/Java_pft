@@ -118,4 +118,15 @@ public class GroupHelper extends HelperBase {
   public void initvCard() {
     click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[9]/a/img"));
   }
+
+    public void createGroup(GroupObjects group) {
+      initGroupCreation();
+      fillGroupForm(new GroupObjects("test1",null, null));
+      submitGroupCreation();
+      returnGroupPage();
+    }
+
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
+  }
 }
