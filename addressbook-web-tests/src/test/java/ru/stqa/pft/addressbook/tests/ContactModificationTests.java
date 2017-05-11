@@ -15,7 +15,7 @@ public class ContactModificationTests extends TestBase {
             app.getContactHelper().createContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
                     "address", "sdfsdf12355", null, "test1"));
         }
-        app.getContactHelper().SelectContact();
+        app.getContactHelper().SelectContact(before-1);
         app.getContactHelper().initContactModification();
         app.getContactHelper().fillFormContact(new ContactObjects("Наталья", "ДНВ", "Долгополова", "Natalisha",
                 "Tester", "1C", "Moscow", "Korolev", "natalya-strel@yandex.ru", null), false);

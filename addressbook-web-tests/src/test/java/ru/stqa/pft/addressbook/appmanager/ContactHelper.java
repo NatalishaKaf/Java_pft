@@ -47,8 +47,8 @@ public class ContactHelper extends HelperBase {
     public void goToFormContacts() {
         click(By.linkText("home"));
     }
-    public void SelectContact(){
-        click(By.name("selected[]"));
+    public void SelectContact(int index){
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
     public void submitDeleteContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
