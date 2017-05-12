@@ -12,11 +12,21 @@ public class GroupCreationTests extends TestBase{
   public void testGroupCreation() {
     app.getNavigationHelper().goToGroupPage();
     List<GroupObjects> before = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().createGroup(new GroupObjects("test1",null, null));
+    GroupObjects group= new GroupObjects("test1",null, null);
+    app.getGroupHelper().createGroup(group);
     List<GroupObjects> after = app.getGroupHelper().getGroupList();
-
     Assert.assertEquals(after.size(),before.size()+1);
 
-  }
 
-}
+    int max= 0;
+    for(GroupObjects g:after) {
+      if (g.getId() > max) {
+        max = g.getId();
+      }
+    }
+    group.setId (max);
+    before.add(group);
+    Assert.assertEquals(after.size(),before.size());
+    }
+
+  }
