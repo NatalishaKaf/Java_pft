@@ -80,7 +80,7 @@ public class ContactHelper extends HelperBase {
 
     public void createContact(ContactObjects contact){
         goToNewFormContact();
-        fillFormContact(new ContactObjects(null, "fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
+        fillFormContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
                 "address", "sdfsdf12355", null, "test1"),true);
         SubmitContactCreation();
         ReturnHomePage();
@@ -95,12 +95,11 @@ public class ContactHelper extends HelperBase {
         List<ContactObjects> contacts = new ArrayList<ContactObjects>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
         for (WebElement element : elements) {
-            String firstname = element.getText();
-            String lastname = element.getText();
             List<WebElement> cells = element.findElements(By.tagName("td"));
-            int index;
-            String id= element.findElements(By.cssSelector("table tr td")).get(index).click();
-        ContactObjects contact = new ContactObjects(id, firstname,null, lastname, null,null,null,null,
+            String firstname = cells.get(2).getText();
+            String lastname = cells.get(1).getText();
+            int id = Integer.parseInt(elements.get(0).findElement(By.cssSelector("input")).getAttribute("value"));
+            ContactObjects contact = new ContactObjects(id, firstname,null, lastname, null,null,null,null,
         null, null,null);
         contacts.add(contact);
         }
