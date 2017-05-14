@@ -2,14 +2,11 @@ package ru.stqa.pft.addressbook.appmanager;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactObjects;
-import ru.stqa.pft.addressbook.model.GroupObjects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +17,12 @@ public class ContactHelper extends HelperBase {
     public ContactHelper(WebDriver wd) {
         super(wd);
     }
+
     public void goToNewFormContact() {
         click(By.linkText("add new"));
     }
-    public void fillFormContact(ContactObjects contactObjects,boolean creation) {
+
+    public void fillFormContact(ContactObjects contactObjects, boolean creation) {
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(contactObjects.getFirstname());
         type(By.name("middlename"), contactObjects.getMiddlename());
@@ -41,9 +40,11 @@ public class ContactHelper extends HelperBase {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
     }
+
     public void SubmitContactCreation() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
+
     public void ReturnHomePage() {
         click(By.xpath("//div/div[4]/div/i/a[2]"));
     }
@@ -51,12 +52,19 @@ public class ContactHelper extends HelperBase {
     public void goToFormContacts() {
         click(By.linkText("home"));
     }
-    public void SelectContact(int index){
+
+    public void SelectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
+    public void pushEdit(int id) {
+        WebElement checkbox = wd.findElement(By.id(Integer.toString(id)));
+        checkbox.findElement(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")).click();
+    }
+
     public void submitDeleteContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
+
     public void goToAlert() {
         wd.switchTo().alert().accept();
     }
@@ -66,11 +74,12 @@ public class ContactHelper extends HelperBase {
 
         //div[@id='content']/form[1]/input[22]
     }
+
     public void submitContactModification() {
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
 
-    public void initContactView (){
+    public void initContactView() {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img"));
     }
 
@@ -78,17 +87,17 @@ public class ContactHelper extends HelperBase {
         click(By.name("modifiy"));
     }
 
-    public void createContact(ContactObjects contact){
+    public void createContact(ContactObjects contact) {
         goToNewFormContact();
         fillFormContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
-                "address", "sdfsdf12355", null, "test1"),true);
+                "address", "sdfsdf12355", null, "[none]"), true);
         SubmitContactCreation();
         ReturnHomePage();
     }
+
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
-
 
 
     public List<ContactObjects> getContactList() {
@@ -98,10 +107,11 @@ public class ContactHelper extends HelperBase {
             List<WebElement> cells = element.findElements(By.tagName("td"));
             String firstname = cells.get(2).getText();
             String lastname = cells.get(1).getText();
-            int id = Integer.parseInt(elements.get(0).findElement(By.cssSelector("input")).getAttribute("value"));
-            ContactObjects contact = new ContactObjects(id, firstname,null, lastname, null,null,null,null,
-        null, null,null);
-        contacts.add(contact);
+            //int id = Integer.parseInt(elements.get(0).findElement(By.cssSelector("input")).getAttribute("value"));
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactObjects contact = new ContactObjects(id, firstname, null, lastname, null, null, null, null,
+                    null, null, null);
+            contacts.add(contact);
         }
 
         return contacts;
