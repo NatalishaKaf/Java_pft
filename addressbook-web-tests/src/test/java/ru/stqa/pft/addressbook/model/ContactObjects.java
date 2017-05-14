@@ -1,124 +1,121 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactObjects {
-  private int id;
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
-  private final String nickname;
-  private final String title;
-  private final String company;
-  private final String addresss;
-  private final String home;
-  private final String email;
-  private final String group;
+    private int id;
+    private final String firstname;
+    private final String middlename;
+    private final String lastname;
+    private final String nickname;
+    private final String title;
+    private final String company;
+    private final String addresss;
+    private final String home;
+    private final String email;
+    private final String group;
 
-  public void setId(int id) {
-    this.id = id;
-  }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-  public ContactObjects(String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
-                        String home, String email, String group) {
-    this.id = 0;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
+    public ContactObjects(String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
+                          String home, String email, String group) {
+        this.id = Integer.MAX_VALUE;
 
-    this.nickname = nickname;
-    this.title = title;
-    this.company = company;
-    this.addresss = addresss;
-    this.home = home;
-    this.email = email;
-    this.group = group;
-  }
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
 
-  public ContactObjects(int id,String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
-                        String home, String email, String group) {
-    this.id = id;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.title = title;
-    this.company = company;
-    this.addresss = addresss;
-    this.home = home;
-    this.email = email;
-    this.group = group;
-  }
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.addresss = addresss;
+        this.home = home;
+        this.email = email;
+        this.group = group;
+    }
 
-  public String getFirstname() {
-    return firstname;
-  }
+    public ContactObjects(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
+                          String home, String email, String group) {
+        this.id = id;
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.addresss = addresss;
+        this.home = home;
+        this.email = email;
+        this.group = group;
+    }
 
-  public String getMiddlename() {
-    return middlename;
-  }
+    public String getFirstname() {
+        return firstname;
+    }
 
-  public String getLastname() {
-    return lastname;
-  }
+    public String getMiddlename() {
+        return middlename;
+    }
 
-  public String getNickname() {
-    return nickname;
-  }
+    public String getLastname() {
+        return lastname;
+    }
 
-  public String getTitle() {
-    return title;
-  }
+    public String getNickname() {
+        return nickname;
+    }
 
-  public String getCompany() {
-    return company;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public String getAddresss() {
-    return addresss;
-  }
+    public String getCompany() {
+        return company;
+    }
 
-  public String getHome() {
-    return home;
-  }
+    public String getAddresss() {
+        return addresss;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public String getHome() {
+        return home;
+    }
 
-  public String getGroup() {
-    return group;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public int getId() {
-    return id;
-  }
+    public String getGroup() {
+        return group;
+    }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    public int getId() {
+        return id;
+    }
 
-    ContactObjects that = (ContactObjects) o;
+    @Override
+    public String toString() {
+        return "ContactObjects{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    if (id != that.id) return false;
-    if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-    return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
-  }
+        ContactObjects that = (ContactObjects) o;
 
-  @Override
-  public int hashCode() {
-    int result = id;
-    result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
-    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-    return result;
-  }
+        if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+    }
 
-  @Override
-  public String toString() {
-    return "ContactObjects{" +
-            "id=" + id +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
-
+    @Override
+    public int hashCode() {
+        int result = firstname != null ? firstname.hashCode() : 0;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        return result;
+    }
 }
