@@ -49,13 +49,23 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div/div[4]/div/i/a[2]"));
     }
 
-    public void goToFormContacts() {
-        click(By.linkText("home"));
-    }
+
 
     public void SelectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
+    public void modifyContacts(int index, ContactObjects contact) {
+        SelectContact(index);
+        initContactModification(index);
+        fillFormContact(contact, false);
+        submitContactModification();
+        goToHome();
+        initContactView();
+        initContactModifiy();
+        submitContactModification();
+        goToHome();
+    }
+
 
     public void submitDeleteContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
@@ -90,7 +100,12 @@ public class ContactHelper extends HelperBase {
         SubmitContactCreation();
         ReturnHomePage();
     }
-
+    public void goToHome() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.linkText("home"));
+    }
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
     }

@@ -54,6 +54,14 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[9]/a/img"));
     }
 
+    public void modifyGroup(int index, GroupObjects group) {
+        SelectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnGroupPage();
+    }
+
     public void createGroup(GroupObjects group) {
         initGroupCreation();
         fillGroupForm(group);
