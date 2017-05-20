@@ -65,6 +65,12 @@ public class ContactHelper extends HelperBase {
         submitContactModification();
         goToHome();
     }
+    public void delete(int index) {
+        SelectContact(index);
+        submitDeleteContact();
+        goToAlert();
+        goToHome();
+    }
 
 
     public void submitDeleteContact() {
@@ -111,7 +117,7 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public List<ContactObjects> getContactList() {
+    public List<ContactObjects> list() {
         List<ContactObjects> contacts = new ArrayList<ContactObjects>();
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
         for (WebElement element : elements) {

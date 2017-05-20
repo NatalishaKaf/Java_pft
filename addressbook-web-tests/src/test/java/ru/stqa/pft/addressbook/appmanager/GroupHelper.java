@@ -54,15 +54,20 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[9]/a/img"));
     }
 
-    public void modifyGroup(int index, GroupObjects group) {
+    public void modify(int index, GroupObjects group) {
         SelectGroup(index);
         initGroupModification();
         fillGroupForm(group);
         submitGroupModification();
         returnGroupPage();
     }
+    public void delete(int index) {
+        SelectGroup(index);
+        DeleteSelectGroups();
+        returnGroupPage();
+    }
 
-    public void createGroup(GroupObjects group) {
+    public void create(GroupObjects group) {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
@@ -73,7 +78,7 @@ public class GroupHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<GroupObjects> getGroupList() {
+    public List<GroupObjects> list() {
         List<GroupObjects> groups = new ArrayList<GroupObjects>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {

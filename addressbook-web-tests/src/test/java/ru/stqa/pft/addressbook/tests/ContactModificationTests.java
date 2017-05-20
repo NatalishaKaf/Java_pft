@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,21 +11,21 @@ import java.util.*;
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        app.getNavigationHelper().goToFormContacts();
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
+        app.goTo().FormContacts();
+        if (app.contact().list().size() == 0) {
+            app.contact().createContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
                     "address", "sdfsdf12355", null, "test1"));
         }
     }
 
     @Test
     public void testContactModification() {
-        List<ContactObjects> before = app.getContactHelper().getContactList();
+        List<ContactObjects> before = app.contact().list();
         int index= before.size() - 1;
         ContactObjects contact = new ContactObjects(before.get(index).getId(), "Наталья", "ДНВ", "Долгополова", "Natalisha",
                 "Tester", "1C", "Moscow", "Korolev", "natalya-strel@yandex.ru", null);
-        app.getContactHelper().modifyContacts(index, contact);
-        List<ContactObjects> after = app.getContactHelper().getContactList();
+        app.contact().modifyContacts(index, contact);
+        List<ContactObjects> after = app.contact().list();
         Assert.assertEquals(after.size(), before.size());
 
         before.remove(index);
