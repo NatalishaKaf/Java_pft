@@ -49,8 +49,6 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div/div[4]/div/i/a[2]"));
     }
 
-
-
     public void SelectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
@@ -101,8 +99,9 @@ public class ContactHelper extends HelperBase {
 
     public void create(ContactObjects contact) {
         goToNewFormContact();
-        fillFormContact(new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-                withCompany("company").withAddresss("address").withEmail("g@mail.ru"), true);
+        //fillFormContact(new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
+               // withCompany("company").withAddresss("address").withEmail("g@mail.ru"), true);
+        fillFormContact(contact,true);
         SubmitContactCreation();
         ReturnHomePage();
     }
