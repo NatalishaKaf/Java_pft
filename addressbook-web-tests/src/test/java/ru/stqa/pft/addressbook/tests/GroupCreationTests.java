@@ -4,18 +4,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupObjects;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Set;
 
 public class GroupCreationTests extends TestBase {
 
     @Test
     public void testGroupCreation() {
         app.goTo().groupPage();
-        List<GroupObjects> before = app.group().list();
+        Set<GroupObjects> before = app.group().all();
         GroupObjects group = new GroupObjects().withName("test1");
         app.group().create(group);
-        List<GroupObjects> after = app.group().list();
+        Set<GroupObjects> after = app.group().all();
         Assert.assertEquals(after.size(), before.size() + 1);
 
 
@@ -27,11 +26,12 @@ public class GroupCreationTests extends TestBase {
         //}
         //Comparator<? super GroupObjects> byId= (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
         //  int max1 = after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
-        group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        //group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
         before.add(group);
-        Comparator<? super GroupObjects> ById= (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+        /*Comparator<? super GroupObjects> ById= (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
         before.sort(ById);
-        after.sort(ById);
+        after.sort(ById);*/
         Assert.assertEquals(before,after);
     }
 

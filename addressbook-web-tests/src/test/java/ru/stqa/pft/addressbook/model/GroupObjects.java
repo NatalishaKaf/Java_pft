@@ -6,21 +6,6 @@ public class GroupObjects {
     private String header;
     private String footer;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        GroupObjects that = (GroupObjects) o;
-
-        return name != null ? name.equals(that.name) : that.name == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return name != null ? name.hashCode() : 0;
-    }
-
 
     public void setId(int id) {
         this.id = id;
@@ -60,8 +45,6 @@ public class GroupObjects {
         return footer;
     }
 
-
-
     @Override
     public String toString() {
         return "GroupObjects{" +
@@ -70,4 +53,23 @@ public class GroupObjects {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GroupObjects that = (GroupObjects) o;
+
+        if (id != that.id) return false;
+        return name != null ? name.equals(that.name) : that.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
+
 }
+

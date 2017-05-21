@@ -21,6 +21,9 @@ public class ContactObjects {
         this.id = id;
         return this;
     }
+
+
+
     public ContactObjects withFirstname(String firstname) {
         this.firstname = firstname;
         return this;
@@ -113,7 +116,6 @@ public class ContactObjects {
         return group;
     }
 
-
     @Override
     public String toString() {
         return "ContactObjects{" +
@@ -122,6 +124,8 @@ public class ContactObjects {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,13 +133,15 @@ public class ContactObjects {
 
         ContactObjects that = (ContactObjects) o;
 
+        if (id != that.id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
     }
 
     @Override
     public int hashCode() {
-        int result = firstname != null ? firstname.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
     }
