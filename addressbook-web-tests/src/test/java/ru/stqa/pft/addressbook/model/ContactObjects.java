@@ -1,54 +1,78 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactObjects {
-    private int id;
-    private final String firstname;
-    private final String middlename;
-    private final String lastname;
-    private final String nickname;
-    private final String title;
-    private final String company;
-    private final String addresss;
-    private final String home;
-    private final String email;
-    private final String group;
+    private int id= Integer.MAX_VALUE;
+    private  String firstname;
+    private  String middlename;
+    private  String lastname;
+    private  String nickname;
+    private  String title;
+    private  String company;
+    private  String addresss;
+    private  String home;
+    private  String email;
+    private  String group;
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public ContactObjects(String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
-                          String home, String email, String group) {
-        this.id = Integer.MAX_VALUE;
-
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.addresss = addresss;
-        this.home = home;
-        this.email = email;
-        this.group = group;
-    }
-
-    public ContactObjects(int id, String firstname, String middlename, String lastname, String nickname, String title, String company, String addresss,
-                          String home, String email, String group) {
+    public ContactObjects withId(int id) {
         this.id = id;
+        return this;
+    }
+    public ContactObjects withFirstname(String firstname) {
         this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.addresss = addresss;
-        this.home = home;
-        this.email = email;
-        this.group = group;
+        return this;
     }
 
+    public ContactObjects withMiddlename(String middlename) {
+        this.middlename = middlename;
+        return this;
+    }
+
+    public ContactObjects withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactObjects withNickname(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public ContactObjects withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public ContactObjects withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public ContactObjects withAddresss(String addresss) {
+        this.addresss = addresss;
+        return this;
+    }
+
+    public ContactObjects withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public ContactObjects withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactObjects withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+    public int getId() {
+        return id;
+    }
     public String getFirstname() {
         return firstname;
     }
@@ -89,9 +113,6 @@ public class ContactObjects {
         return group;
     }
 
-    public int getId() {
-        return id;
-    }
 
     @Override
     public String toString() {
@@ -118,4 +139,5 @@ public class ContactObjects {
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
     }
+
 }

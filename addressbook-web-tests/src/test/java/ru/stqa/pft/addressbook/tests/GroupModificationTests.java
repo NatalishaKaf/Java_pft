@@ -16,7 +16,7 @@ public class GroupModificationTests extends TestBase {
         app.goTo().groupPage();
         //if (!app.group().isThereAGroup()) {
         if (app.group().list().size() == 0) {
-            app.group().create(new GroupObjects("test1", null, null));
+            app.group().create(new GroupObjects().withName("test1"));
         }
     }
 
@@ -24,8 +24,8 @@ public class GroupModificationTests extends TestBase {
     public void testGroupModification() {
         List<GroupObjects> before = app.group().list();
         int index = before.size()-1;
-        GroupObjects group = new GroupObjects(before.get(index).getId(), "GroupName",
-                "GroupHeader", "GroupFooter");
+        GroupObjects group = new GroupObjects().withId(before.get(index).getId()).withName("GroupName").
+                withHeader("GroupHeader").withFooter("GroupFooter");
         app.group().modify(index, group);
         List<GroupObjects> after = app.group().list();
         Assert.assertEquals(after.size(), before.size());

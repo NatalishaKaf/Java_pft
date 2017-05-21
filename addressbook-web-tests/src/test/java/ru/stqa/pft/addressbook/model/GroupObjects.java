@@ -1,10 +1,10 @@
 package ru.stqa.pft.addressbook.model;
 
 public class GroupObjects {
-    private int id;
-    private final String name;
-    private final String header;
-    private final String footer;
+    private int id= Integer.MAX_VALUE;
+    private String name;
+    private String header;
+    private String footer;
 
     @Override
     public boolean equals(Object o) {
@@ -21,27 +21,33 @@ public class GroupObjects {
         return name != null ? name.hashCode() : 0;
     }
 
-    public GroupObjects(String name, String header, String footer) {
-        this.id = Integer.MAX_VALUE;
-        this.name = name;
-        this.header = header;
-        this.footer = footer;
-
-    }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public GroupObjects(int id, String name, String header, String footer) {
+    public GroupObjects withId(int id) {
         this.id = id;
+        return this;
+    }
+    public GroupObjects withName(String name) {
         this.name = name;
-        this.header = header;
-
-        this.footer = footer;
-
+        return this;
     }
 
+    public GroupObjects withHeader(String header) {
+        this.header = header;
+        return this;
+    }
+
+    public GroupObjects withFooter(String footer) {
+        this.footer = footer;
+        return this;
+    }
+
+    public int getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
@@ -54,9 +60,7 @@ public class GroupObjects {
         return footer;
     }
 
-    public int getId() {
-        return id;
-    }
+
 
     @Override
     public String toString() {

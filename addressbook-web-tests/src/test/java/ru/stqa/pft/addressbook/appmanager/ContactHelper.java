@@ -99,10 +99,10 @@ public class ContactHelper extends HelperBase {
         click(By.name("modifiy"));
     }
 
-    public void createContact(ContactObjects contact) {
+    public void create(ContactObjects contact) {
         goToNewFormContact();
-        fillFormContact(new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
-                "address", "sdfsdf12355", null, "[none]"), true);
+        fillFormContact(new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
+                withCompany("company").withAddresss("address").withEmail("g@mail.ru"), true);
         SubmitContactCreation();
         ReturnHomePage();
     }
@@ -126,9 +126,8 @@ public class ContactHelper extends HelperBase {
             String lastname = cells.get(1).getText();
             //int id = Integer.parseInt(elements.get(0).findElement(By.cssSelector("input")).getAttribute("value"));
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactObjects contact = new ContactObjects(id, firstname, null, lastname, null, null, null, null,
-                    null, null, null);
-            contacts.add(contact);
+            //ContactObjects contact =
+            contacts.add(new ContactObjects().withId(id).withFirstname(firstname). withLastname(lastname));
         }
 
         return contacts;
