@@ -4,8 +4,6 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupObjects;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.Set;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -17,7 +15,8 @@ public class GroupCreationTests extends TestBase {
         Groups before = app.group().all();
         GroupObjects group = new GroupObjects().withName("test1");
         app.group().create(group);
-        Set<GroupObjects> after = app.group().all();
+        assertThat(app.group().count(),equalTo( before.size()+1));
+        Groups after = app.group().all();
         // int max= 0;
         //for(GroupObjects g:after) {
         // if (g.getId() > max) {
@@ -32,11 +31,21 @@ public class GroupCreationTests extends TestBase {
         /*Comparator<? super GroupObjects> ById= (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
         before.sort(ById);
         after.sort(ById);*/
-        assertThat(after.size(), equalTo( before.size() + 1));
         assertThat(after, equalTo
                 (before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
 
-
     }
 
-}
+    @Test
+    public void testBadGroupCreation() {
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        GroupObjects group = new GroupObjects().withName("test1'");
+        app.group().create(group);
+        assertThat(app.group().count(),equalTo( before.size()));
+        Groups after = app.group().all();
+        assertThat(after, equalTo(before));
+    }
+                //(before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
+    }
