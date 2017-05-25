@@ -8,10 +8,15 @@ public class ContactObjects {
     private  String nickname;
     private  String title;
     private  String company;
-    private  String addresss;
+    private  String address;
     private  String home;
     private  String email;
     private  String group;
+    private  String homePhone;
+    private  String mobilPhone;
+    private  String workPhone;
+    private String[] phones;
+
 
     public void setId(int id) {
         this.id = id;
@@ -21,8 +26,6 @@ public class ContactObjects {
         this.id = id;
         return this;
     }
-
-
 
     public ContactObjects withFirstname(String firstname) {
         this.firstname = firstname;
@@ -54,8 +57,8 @@ public class ContactObjects {
         return this;
     }
 
-    public ContactObjects withAddresss(String addresss) {
-        this.addresss = addresss;
+    public ContactObjects withAddress(String address) {
+        this.address = address;
         return this;
     }
 
@@ -71,6 +74,18 @@ public class ContactObjects {
 
     public ContactObjects withGroup(String group) {
         this.group = group;
+        return this;
+    }
+    public ContactObjects withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+    public ContactObjects withMobilPhone(String mobilPhone) {
+        this.mobilPhone = mobilPhone;
+        return this;
+    }
+    public ContactObjects withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
         return this;
     }
     public int getId() {
@@ -100,8 +115,8 @@ public class ContactObjects {
         return company;
     }
 
-    public String getAddresss() {
-        return addresss;
+    public String getAddress() {
+        return address;
     }
 
     public String getHome() {
@@ -115,6 +130,26 @@ public class ContactObjects {
     public String getGroup() {
         return group;
     }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+    public String getMobilPhone() {
+        return mobilPhone;
+    }
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public String[] getPhones() {
+        return phones;
+    }
+
+    public ContactObjects withPhones(String[] phones) {
+        this.phones = phones;
+        return this;
+    }
+
 
     @Override
     public String toString() {

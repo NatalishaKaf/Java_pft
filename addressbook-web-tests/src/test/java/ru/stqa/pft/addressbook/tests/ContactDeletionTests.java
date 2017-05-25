@@ -20,7 +20,7 @@ public class ContactDeletionTests extends TestBase {
         app.goTo().FormContacts();
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-                    withCompany("company").withAddresss("address").withEmail("g@mail.ru"));;
+                    withCompany("company").withAddress("address").withEmail("g@mail.ru"));;
         }
     }
 
