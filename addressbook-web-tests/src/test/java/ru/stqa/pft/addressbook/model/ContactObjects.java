@@ -15,7 +15,7 @@ public class ContactObjects {
     private  String homePhone;
     private  String mobilPhone;
     private  String workPhone;
-    private String[] phones;
+    private  String phones;
 
 
     public void setId(int id) {
@@ -141,11 +141,11 @@ public class ContactObjects {
         return workPhone;
     }
 
-    public String[] getPhones() {
+    public String getPhones() {
         return phones;
     }
 
-    public ContactObjects withPhones(String[] phones) {
+    public ContactObjects withPhones(String phones) {
         this.phones = phones;
         return this;
     }

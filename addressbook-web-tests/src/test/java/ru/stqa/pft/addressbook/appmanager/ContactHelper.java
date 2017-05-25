@@ -137,7 +137,7 @@ public class ContactHelper extends HelperBase {
             List<WebElement> cells = element.findElements(By.tagName("td"));
             String lastname = cells.get(1).getText();
             String firstname = cells.get(2).getText();
-            String[] phones = cells.get(5).getText().split("\n");
+            String phones = cells.get(5).getText();
             String addresss = cells.get(3).getText();
             String email = cells.get(4).getText();
             //int id = Integer.parseInt(elements.get(0).findElement(By.cssSelector("input")).getAttribute("value"));
