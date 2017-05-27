@@ -33,13 +33,17 @@ public class ContactHelper extends HelperBase {
         type(By.name("address"), contactObjects.getAddress());
         type(By.name("home"), contactObjects.getHome());
         type(By.name("email"), contactObjects.getEmail());
+        attach(By.name("photo"), contactObjects.getPhoto());
 
         if (creation) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroup());
-        } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
+            if (contactObjects.getGroup() != null){
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroup());
+            }
+            } else {
+                Assert.assertFalse(isElementPresent(By.name("new_group")));
+            }
         }
-    }
+
 
     public void SubmitContactCreation() {
         click(By.xpath("//div[@id='content']/form/input[21]"));

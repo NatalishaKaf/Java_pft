@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactObjects;
 import ru.stqa.pft.addressbook.model.Contacts;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -12,8 +14,9 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void CreationTestContacts() {
         Contacts before = app.contact().all();
+        File photo = new File("src/test/resources/stru");
         ContactObjects contact = new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-                withCompany("company").withAddress("address").withEmail("g@mail.ru").withGroup("test1");
+                withCompany("company").withAddress("address").withEmail("g@mail.ru").withPhoto(photo);
         //ContactObjects contact = new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
         //      "address", "sdfsdf12355", null, "test1");
         app.contact().create(contact);
@@ -43,13 +46,22 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void CreationBadTestContacts() {
         Contacts before = app.contact().all();
-        ContactObjects contact = new ContactObjects().withFirstname("name ' ").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-                withCompany("company").withAddress("address").withEmail("g@mail.ru").withGroup("test1");
+        File photo = new File("src/test/resources/stru");
+        ContactObjects contact = new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
+                withCompany("company").withAddress("address").withEmail("g@mail.ru").withPhoto(photo);
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();
         assertThat(after, equalTo(before));
+    }
 
+   @Test (enabled = false)
+    public void testCurrentDir(){
+        File currentDir = new File(".");
+        System.out.println(currentDir.getAbsolutePath());
+        File photo = new File("src/test/resources/stru");
+        System.out.println(photo.getAbsolutePath());
+        System.out.println(photo.exists());
     }
 }
 

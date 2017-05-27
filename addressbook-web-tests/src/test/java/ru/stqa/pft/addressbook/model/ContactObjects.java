@@ -1,5 +1,9 @@
 package ru.stqa.pft.addressbook.model;
 
+import org.openqa.selenium.By;
+
+import java.io.File;
+
 public class ContactObjects {
     private int id= Integer.MAX_VALUE;
     private  String firstname;
@@ -16,6 +20,17 @@ public class ContactObjects {
     private  String mobilPhone;
     private  String workPhone;
     private  String phones;
+    private  File photo;
+
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public ContactObjects withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
 
 
     public void setId(int id) {
