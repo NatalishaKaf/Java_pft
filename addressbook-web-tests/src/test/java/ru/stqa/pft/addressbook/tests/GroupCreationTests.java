@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.model.ContactObjects;
 import ru.stqa.pft.addressbook.model.GroupObjects;
 import ru.stqa.pft.addressbook.model.Groups;
 
@@ -17,20 +18,21 @@ public class GroupCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validGroups() throws IOException {
-        List<Object[]> list= new ArrayList<Object[]>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
-        String line = reader.readLine();
+        List<Object[]> list = new ArrayList<Object[]>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")));
+        String line=  reader.readLine();
         while (line != null) {
             String[] split = line.split(";");
             list.add(new Object[]{new GroupObjects().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
             line = reader.readLine();
         }
         return list.iterator();
+    }
+
 
         /*list.add(new Object[]{new GroupObjects().withName("test1").withHeader("header1").withFooter("footer1")});
         list.add(new Object[]{new GroupObjects().withName("test2").withHeader("header2").withFooter("footer2")});
         list.add(new Object[]{new GroupObjects().withName("test3").withHeader("header3").withFooter("footer3")});*/
-    }
 
     @Test (dataProvider = "validGroups")
     public void testGroupCreation(GroupObjects group) {
