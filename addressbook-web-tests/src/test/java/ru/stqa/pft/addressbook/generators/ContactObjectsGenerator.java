@@ -3,8 +3,10 @@ package ru.stqa.pft.addressbook.generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import ru.stqa.pft.addressbook.model.ContactObjects;
-import ru.stqa.pft.addressbook.model.GroupObjects;
+
 
 import java.io.File;
 import java.io.FileWriter;
@@ -20,13 +22,16 @@ public class ContactObjectsGenerator {
 
     @Parameter (names = "-f", description = "Target file")
     public String file;
+    
+    @Parameter (names = "-o", description = "Objects file")
+    public String format;
 
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         ContactObjectsGenerator generator = new ContactObjectsGenerator();
         JCommander jCommander = new JCommander(generator);
         try {
             jCommander.parse(args);
-        }catch (ParameterException ex){
+        } catch (ParameterException ex) {
             jCommander.usage();
             return;
         }
@@ -36,9 +41,23 @@ public class ContactObjectsGenerator {
 
     private void run() throws IOException {
         List<ContactObjects> contacts = generateContacts(count);
-        save (contacts, new File(file));
+        if (format.equals("csv")) {
+            saveAsCsv(contacts, new File(file));
+        } else if (format.equals("json")) {
+            saveAsJson(contacts, new File(file));
+        } else {
+            System.out.println("Unregnized format" + format);
+        }
     }
-    private static void save(List<ContactObjects> contacts, File file) throws IOException {
+
+    private void saveAsJson(List<ContactObjects> contacts, File file) throws IOException  {
+        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(contacts);
+        Writer writer = new FileWriter(file);
+        writer.write(json);
+        writer.close();
+    }
+    private static void saveAsCsv(List<ContactObjects> contacts, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
         Writer writer = new FileWriter(file);
         for (ContactObjects contact : contacts) {

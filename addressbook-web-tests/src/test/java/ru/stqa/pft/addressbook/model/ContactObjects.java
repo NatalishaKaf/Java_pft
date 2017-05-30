@@ -1,13 +1,16 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.google.gson.annotations.Expose;
 import org.openqa.selenium.By;
 
 import java.io.File;
 
 public class ContactObjects {
     private int id= Integer.MAX_VALUE;
+    @Expose
     private  String firstname;
     private  String middlename;
+    @Expose
     private  String lastname;
     private  String nickname;
     private  String title;
@@ -19,6 +22,7 @@ public class ContactObjects {
     private  String homePhone;
     private  String mobilPhone;
     private  String workPhone;
+    @Expose
     private  String phones;
     private  File photo;
 
