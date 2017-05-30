@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactObjects;
@@ -10,6 +12,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,16 +20,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GroupCreationTests extends TestBase {
 
     @DataProvider
-    public Iterator<Object[]> validGroups() throws IOException {
-        List<Object[]> list = new ArrayList<Object[]>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")));
-        String line=  reader.readLine();
-        while (line != null) {
-            String[] split = line.split(";");
-            list.add(new Object[]{new GroupObjects().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+    public Iterator<Object[]> validGroupsFromJson() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
+        String json = "";
+        String line =  reader.readLine();
+        while (json != null) {
+          json += line;
             line = reader.readLine();
         }
-        return list.iterator();
+        Gson gson = new Gson();
+        List<GroupObjects> groups = gson.fromJson(json, new TypeToken<List<GroupObjects>>(){}.getType()); //List<GroupObjects>.class
+        return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
 
 
@@ -34,14 +38,10 @@ public class GroupCreationTests extends TestBase {
         list.add(new Object[]{new GroupObjects().withName("test2").withHeader("header2").withFooter("footer2")});
         list.add(new Object[]{new GroupObjects().withName("test3").withHeader("header3").withFooter("footer3")});*/
 
-    @Test (dataProvider = "validGroups")
+    @Test (dataProvider = "validGroupsFromJson")
     public void testGroupCreation(GroupObjects group) {
-        /*String[] names = new String[] {"test1", "test2", "test3"};
-        for (String name: names) {*/
-            //GroupObjects group = new GroupObjects().withName(name).withHeader(header).withFooter(footer);
             app.goTo().groupPage();
             Groups before = app.group().all();
-           // GroupObjects group = new GroupObjects().withName("test1");
             app.group().create(group);
             assertThat(app.group().count(), equalTo(before.size() + 1));
             Groups after = app.group().all();
