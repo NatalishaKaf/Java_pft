@@ -53,17 +53,17 @@ public class ContactObjectsGenerator {
     private void saveAsJson(List<ContactObjects> contacts, File file) throws IOException  {
         Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
         String json = gson.toJson(contacts);
-        Writer writer = new FileWriter(file);
-        writer.write(json);
-        writer.close();
+        try (Writer writer = new FileWriter(file)){
+            writer.write(json);
+        }
     }
     private static void saveAsCsv(List<ContactObjects> contacts, File file) throws IOException {
         System.out.println(new File(".").getAbsolutePath());
-        Writer writer = new FileWriter(file);
+        try (Writer writer = new FileWriter(file)){
         for (ContactObjects contact : contacts) {
             writer.write(String.format("%s;%s;%s\n", contact.getFirstname(), contact.getLastname(), contact.getPhones()));
         }
-        writer.close();
+        }
     }
 
     private static List<ContactObjects> generateContacts(int count) {
