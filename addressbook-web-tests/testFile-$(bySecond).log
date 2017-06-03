@@ -1,0 +1,75 @@
+38934 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+60553 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+60556 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+72434 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+72435 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+82477 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+82478 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+92791 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+92793 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+102999 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+15:04:09.765 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+15:04:47.719 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+15:04:47.721 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+15:05:02.945 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+15:05:02.946 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+15:05:16.907 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+15:05:16.908 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+15:05:37.163 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+15:05:37.164 [main] INFO  r.s.p.a.tests.GroupCreationTests - Start testGroupCreatoin
+15:05:52.181 [main] INFO  r.s.p.a.tests.GroupCreationTests - Stop test testGroupCreation
+15:14:22.934 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test
+15:14:47.577 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:14:47.579 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test
+15:14:59.081 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:14:59.083 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test
+15:19:34.601 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 0', id='2147483647'}]
+15:20:15.212 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:20:15.213 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 9', id='2147483647'}]
+15:20:28.446 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:20:28.447 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 10', id='2147483647'}]
+15:20:42.502 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:20:42.503 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 15', id='2147483647'}]
+15:20:55.028 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:20:55.029 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 19', id='2147483647'}]
+15:21:08.026 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+15:24:29.000 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 0', lastname='lastname 0'}]
+15:25:37.769 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:25:37.770 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 1', lastname='lastname 1'}]
+15:26:13.474 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:26:13.476 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 2', lastname='lastname 2'}]
+15:26:53.712 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:26:53.714 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 3', lastname='lastname 3'}]
+15:27:31.409 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:27:31.410 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 4', lastname='lastname 4'}]
+15:28:07.671 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:28:07.673 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 5', lastname='lastname 5'}]
+15:28:45.131 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:28:45.132 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 6', lastname='lastname 6'}]
+15:29:23.466 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:29:23.467 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 7', lastname='lastname 7'}]
+15:30:01.999 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:30:02.000 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 8', lastname='lastname 8'}]
+15:30:42.790 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:30:42.792 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 9', lastname='lastname 9'}]
+15:31:26.435 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:31:26.436 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 10', lastname='lastname 10'}]
+15:32:16.243 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:32:16.244 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 11', lastname='lastname 11'}]
+15:32:57.178 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:32:57.180 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 12', lastname='lastname 12'}]
+15:33:38.432 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:33:38.433 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 13', lastname='lastname 13'}]
+15:34:20.574 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:34:20.575 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 14', lastname='lastname 14'}]
+15:35:02.852 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:35:02.855 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 15', lastname='lastname 15'}]
+15:35:44.601 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:35:44.603 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 16', lastname='lastname 16'}]
+15:36:29.032 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:36:29.033 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 17', lastname='lastname 17'}]
+15:37:14.078 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:37:14.079 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 18', lastname='lastname 18'}]
+15:37:59.674 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+15:37:59.676 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 19', lastname='lastname 19'}]
+15:38:43.980 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
