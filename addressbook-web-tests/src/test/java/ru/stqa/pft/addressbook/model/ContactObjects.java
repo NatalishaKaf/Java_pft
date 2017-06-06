@@ -13,11 +13,14 @@ import java.io.File;
 public class ContactObjects {
     @Id
     @Column(name= "id")
-    private int id;
+    private int id=Integer.MAX_VALUE;
+    @Expose
     @Column(name= "firstname")
     private  String firstname;
-    @Transient
+    @Expose
+    @Column(name= "middletname")
     private  String middlename;
+    @Expose
     @Column(name= "lastname")
     private  String lastname;
     @Transient
@@ -37,21 +40,29 @@ public class ContactObjects {
     @Column(name= "home")
     @Type(type= "text")
     private  String homePhone;
+
     @Column(name= "mobile")
     @Type(type= "text")
     private  String mobilPhone;
+
     @Column(name= "work")
     @Type(type= "text")
     private  String workPhone;
+
     @Transient
     private  String phones;
+
     @Column(name= "photo")
     @Type(type= "text")
     private String photo;
 
 
     public File getPhoto() {
-        return new File (photo);
+        if (photo !=  null) {
+            return new File(photo);
+        } else {
+            return null;
+        }
     }
 
     public ContactObjects withPhoto(File photo) {
@@ -202,7 +213,6 @@ public class ContactObjects {
                 '}';
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -212,15 +222,24 @@ public class ContactObjects {
 
         if (id != that.id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+        if (middlename != null ? !middlename.equals(that.middlename) : that.middlename != null) return false;
+        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        if (homePhone != null ? !homePhone.equals(that.homePhone) : that.homePhone != null) return false;
+        if (mobilPhone != null ? !mobilPhone.equals(that.mobilPhone) : that.mobilPhone != null) return false;
+        if (workPhone != null ? !workPhone.equals(that.workPhone) : that.workPhone != null) return false;
+        return photo != null ? photo.equals(that.photo) : that.photo == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (middlename != null ? middlename.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (homePhone != null ? homePhone.hashCode() : 0);
+        result = 31 * result + (mobilPhone != null ? mobilPhone.hashCode() : 0);
+        result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
+        result = 31 * result + (photo != null ? photo.hashCode() : 0);
         return result;
     }
-
 }

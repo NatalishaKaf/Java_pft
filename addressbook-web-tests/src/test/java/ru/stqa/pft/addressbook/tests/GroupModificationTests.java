@@ -16,23 +16,24 @@ public class GroupModificationTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
+        if (app.db().groups().size()==0){
         app.goTo().groupPage();
         //if (!app.group().isThereAGroup()) {
-        if (app.group().all().size() == 0) {
             app.group().create(new GroupObjects().withName("test1"));
         }
     }
 
     @Test
     public void testGroupModification() {
-        Groups before = app.group().all();
+        Groups before = app.db().groups();
         GroupObjects modifiedGroup = before.iterator().next();
        // int index = before.size()-1;
         GroupObjects group = new GroupObjects().withId(modifiedGroup.getId()).withName("GroupName").
                 withHeader("GroupHeader").withFooter("GroupFooter");
+        app.goTo().groupPage();
         app.group().modify(group);
         assertThat(app.group().count(), equalTo(before.size()));
-        Groups after = app.group().all();
+        Groups after = app.db().groups();
         //before.remove(modifiedGroup);
         //before.add(group);
        /* Comparator<? super GroupObjects> ById= (g1, g2) -> Integer.compare(g1.getId(), g2.getId());

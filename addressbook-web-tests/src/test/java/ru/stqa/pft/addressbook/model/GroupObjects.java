@@ -70,14 +70,6 @@ public class GroupObjects {
     }
 
     @Override
-    public String toString() {
-        return "GroupObjects{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -85,14 +77,26 @@ public class GroupObjects {
         GroupObjects that = (GroupObjects) o;
 
         if (id != that.id) return false;
-        return name != null ? name.equals(that.name) : that.name == null;
+        if (!name.equals(that.name)) return false;
+        if (!header.equals(that.header)) return false;
+        return footer.equals(that.footer);
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + name.hashCode();
+        result = 31 * result + header.hashCode();
+        result = 31 * result + footer.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupObjects{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 
 }
