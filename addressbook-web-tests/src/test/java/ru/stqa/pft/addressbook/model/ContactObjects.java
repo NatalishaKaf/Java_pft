@@ -1,61 +1,38 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
-import org.hibernate.annotations.Type;
 import org.openqa.selenium.By;
 
-import javax.persistence.*;
 import java.io.File;
 
-@Entity
-@Table(name= "addressbook")
-
 public class ContactObjects {
-    @Id
-    @Column(name= "id")
-    private int id;
-    @Column(name= "firstname")
+    private int id= Integer.MAX_VALUE;
+    @Expose
     private  String firstname;
-    @Transient
     private  String middlename;
-    @Column(name= "lastname")
+    @Expose
     private  String lastname;
-    @Transient
     private  String nickname;
-    @Transient
     private  String title;
-    @Transient
     private  String company;
-    @Transient
     private  String address;
-    @Transient
     private  String home;
-    @Transient
     private  String email;
-    @Transient
     private  String group;
-    @Column(name= "home")
-    @Type(type= "text")
     private  String homePhone;
-    @Column(name= "mobile")
-    @Type(type= "text")
     private  String mobilPhone;
-    @Column(name= "work")
-    @Type(type= "text")
     private  String workPhone;
-    @Transient
+    @Expose
     private  String phones;
-    @Column(name= "photo")
-    @Type(type= "text")
-    private String photo;
+    private  File photo;
 
 
     public File getPhoto() {
-        return new File (photo);
+        return photo;
     }
 
     public ContactObjects withPhoto(File photo) {
-        this.photo = photo.getPath();
+        this.photo = photo;
         return this;
     }
 
