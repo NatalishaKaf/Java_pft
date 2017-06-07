@@ -73,3 +73,86 @@
 15:37:59.674 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
 15:37:59.676 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 19', lastname='lastname 19'}]
 15:38:43.980 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:34:51.568 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 0', lastname='lastname 0'}]
+23:36:10.451 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:36:10.451 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 1', lastname='lastname 1'}]
+23:37:14.099 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactAddresswith parameters[]
+23:37:47.224 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactAddress
+23:37:47.392 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 0', lastname='lastname 0'}]
+23:38:22.408 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:38:22.418 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 1', lastname='lastname 1'}]
+23:38:54.558 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:38:54.559 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 2', lastname='lastname 2'}]
+23:39:26.790 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:39:26.790 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 3', lastname='lastname 3'}]
+23:40:01.054 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:40:01.054 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 4', lastname='lastname 4'}]
+23:40:46.389 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:40:46.390 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 5', lastname='lastname 5'}]
+23:41:44.850 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:41:44.851 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 6', lastname='lastname 6'}]
+23:42:39.738 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:42:39.740 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 7', lastname='lastname 7'}]
+23:43:31.722 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:43:31.724 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 8', lastname='lastname 8'}]
+23:45:26.703 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:45:26.704 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 9', lastname='lastname 9'}]
+23:46:33.504 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:46:33.506 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 10', lastname='lastname 10'}]
+23:47:15.830 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:47:15.840 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 11', lastname='lastname 11'}]
+23:48:17.256 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:48:17.257 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 12', lastname='lastname 12'}]
+23:49:15.093 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:49:15.094 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 13', lastname='lastname 13'}]
+23:50:18.748 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:50:18.752 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 14', lastname='lastname 14'}]
+23:50:55.487 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:50:55.488 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 15', lastname='lastname 15'}]
+23:51:32.615 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:51:32.616 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 16', lastname='lastname 16'}]
+23:52:09.919 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:52:09.921 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 17', lastname='lastname 17'}]
+23:52:50.607 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:52:50.608 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 18', lastname='lastname 18'}]
+23:53:53.902 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:53:53.903 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactCreationwith parameters[ContactObjects{id=2147483647, firstname='firstname 19', lastname='lastname 19'}]
+23:54:46.552 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactCreation
+23:54:46.554 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testGroupDeletionContactswith parameters[]
+23:55:30.304 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testGroupDeletionContacts
+23:55:30.307 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactEmailwith parameters[]
+23:55:33.599 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactEmail
+23:55:33.602 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactModificationwith parameters[]
+23:56:24.246 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactModification
+23:56:24.248 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestContactPhoneswith parameters[]
+23:56:27.282 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestContactPhones
+23:56:30.175 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 0', id='2147483647'}]
+23:56:53.716 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+23:56:53.717 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 9', id='2147483647'}]
+23:57:06.648 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+23:57:06.649 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 10', id='2147483647'}]
+23:57:20.017 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+23:57:20.019 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 15', id='2147483647'}]
+23:57:33.288 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+23:57:33.290 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupCreationwith parameters[GroupObjects{name='test 19', id='2147483647'}]
+23:57:46.611 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupCreation
+23:57:46.614 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGropDeletionswith parameters[]
+23:57:58.268 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGropDeletions
+23:57:58.271 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGroupModificationwith parameters[]
+23:58:11.041 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGroupModification
+23:58:11.331 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+23:58:11.670 [main] DEBUG o.h.i.i.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+23:58:11.727 [main] DEBUG o.h.i.i.IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+23:58:11.907 [main] DEBUG o.h.i.i.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+23:58:12.914 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.10.Final}
+23:58:12.957 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+00:13:43.378 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:13:43.650 [main] DEBUG o.h.i.i.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+00:13:43.673 [main] DEBUG o.h.i.i.IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+00:13:43.750 [main] DEBUG o.h.i.i.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+00:13:44.672 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.10.Final}
+00:13:44.689 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+00:24:35.891 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testtestGropDeletionswith parameters[]
+00:25:05.872 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testtestGropDeletions
+00:26:00.585 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start testGroupDeletionContactswith parameters[]
+00:27:55.308 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop testGroupDeletionContacts

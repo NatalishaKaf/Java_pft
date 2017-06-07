@@ -1,3 +1,4 @@
+/*
 package ru.stqa.pft.addressbook.tests;
 
 import org.hibernate.Session;
@@ -42,3 +43,4 @@ public class HbConnectionTest {
         session.close();
     }
 }
+*/
