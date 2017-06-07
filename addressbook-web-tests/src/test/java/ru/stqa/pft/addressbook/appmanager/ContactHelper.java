@@ -53,7 +53,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div/div[4]/div/i/a[2]"));
     }
 
-    public void SelectContactById(int id) {
+    private void SelectContactById(int id) {
         wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 

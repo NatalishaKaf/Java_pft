@@ -22,7 +22,6 @@ public class ContactCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validContactsFromJson() throws IOException {
-        List<Object[]> list = new ArrayList<Object[]>();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
             String json = "";
             String line = reader.readLine();
@@ -40,15 +39,15 @@ public class ContactCreationTests extends TestBase {
 
     @Test (dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactObjects contact) {
-        Contacts before = app.db().contacts();
-       //File photo = new File("src/test/resources/stru");
-       // ContactObjects contact = new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-           //   withCompany("company").withAddress("address").withEmail("g@mail.ru").withPhoto(photo);
+        Contacts before = app.contact().all();
+       // File photo = new File("src/test/resources/stru");
+        //ContactObjects contact = new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
+              //  withCompany("company").withAddress("address").withEmail("g@mail.ru").withPhoto(photo);
         //ContactObjects contact = new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
-        //    "address", "sdfsdf12355", null, "test1");
+        //      "address", "sdfsdf12355", null, "test1");
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.db().contacts();
+        Contacts after = app.contact().all();
         assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
 
@@ -76,15 +75,15 @@ public class ContactCreationTests extends TestBase {
 
     @Test (enabled = false)
     public void CreationBadTestContacts() {
-        Contacts before = app.db().contacts();
-      File photo = new File("src/test/resources/stru");
+        Contacts before = app.contact().all();
+      //File photo = new File("src/test/resources/stru");
         ContactObjects contact = new ContactObjects().withFirstname("firstname").withLastname("lastname").withPhones("phones");
        // ContactObjects contact = new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
                // withCompany("company").withAddress("address").withEmail("g@mail.ru");
                 //.withPhoto(photo);
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
-        Contacts after = app.db().contacts();
+        Contacts after = app.contact().all();
         assertThat(after, equalTo(before));
     }
 
