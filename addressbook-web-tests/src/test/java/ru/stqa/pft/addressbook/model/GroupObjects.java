@@ -70,14 +70,6 @@ public class GroupObjects {
     }
 
     @Override
-    public String toString() {
-        return "GroupObjects{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -98,5 +90,14 @@ public class GroupObjects {
         result = 31 * result + (footer != null ? footer.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "GroupObjects{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
 }
 

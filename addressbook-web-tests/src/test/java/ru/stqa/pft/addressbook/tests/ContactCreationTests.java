@@ -39,39 +39,12 @@ public class ContactCreationTests extends TestBase {
 
     @Test (dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactObjects contact) {
-        Contacts before = app.contact().all();
-       // File photo = new File("src/test/resources/stru");
-        //ContactObjects contact = new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-              //  withCompany("company").withAddress("address").withEmail("g@mail.ru").withPhoto(photo);
-        //ContactObjects contact = new ContactObjects("fgdfg", "xfdgfg", "xcv", "dfg", null, "cvbvcb",
-        //      "address", "sdfsdf12355", null, "test1");
+        Contacts before = app.db().contacts();
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
-
-
-
-        //int max = 0;
-/*for (ContactObjects g : after) {
-            if (g.getId() > max) {
-                max = g.getId();
-            }
-        }*//*
-
-        //Comparator<? super ContactObjects> ById= (Comparator<ContactObjects>) (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
-        //int max1= after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
-
-        //contact.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
-        //contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
-        // before.add(contact);
-       */
-/* Comparator<? super ContactObjects> byId= (b1, b2) -> Integer.compare(b1.getId(), b2.getId());
-        before.sort(byId);
-        after.sort(byId);*/
-
-        // Assert.assertEquals(before,after);
 
     @Test (enabled = false)
     public void CreationBadTestContacts() {

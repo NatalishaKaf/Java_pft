@@ -17,24 +17,21 @@ import static org.testng.Assert.assertEquals;
 public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().FormContacts();
-        if (app.contact().all().size() == 0) {
-            app.contact().create(new ContactObjects().withFirstname("name").withMiddlename("middlename").withLastname("lastname").withNickname("nick").
-                    withCompany("company").withAddress("address").withEmail("g@mail.ru"));;
+        if (app.db().contacts().size() == 0) {
+            app.goTo().goToHome();
+            app.contact().create(new ContactObjects().withFirstname("name").withLastname("lastname"));
         }
     }
 
-
     @Test
     public void GroupDeletionContacts() {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactObjects deletedContact = before.iterator().next();
+        app.goTo().goToHome();
         app.contact().delete(deletedContact);
         assertThat(app.contact().count(),equalTo( before.size()-1));
-        Contacts after = app.contact().all();
-        //before.remove(deletedContact);
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(before.withOut(deletedContact)));
-        //Assert.assertEquals(before, after);
 
     }
 
