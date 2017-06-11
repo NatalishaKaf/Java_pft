@@ -85,15 +85,18 @@ public class GroupObjects {
         GroupObjects that = (GroupObjects) o;
 
         if (id != that.id) return false;
-        return name != null ? name.equals(that.name) : that.name == null;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (header != null ? !header.equals(that.header) : that.header != null) return false;
+        return footer != null ? footer.equals(that.footer) : that.footer == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (header != null ? header.hashCode() : 0);
+        result = 31 * result + (footer != null ? footer.hashCode() : 0);
         return result;
     }
-
 }
 

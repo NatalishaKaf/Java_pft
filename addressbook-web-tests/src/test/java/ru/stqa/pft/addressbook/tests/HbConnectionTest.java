@@ -1,4 +1,3 @@
-/*
 package ru.stqa.pft.addressbook.tests;
 
 import org.hibernate.Session;
@@ -13,6 +12,7 @@ import ru.stqa.pft.addressbook.model.GroupObjects;
 import java.util.List;
 
 public class HbConnectionTest {
+
     private SessionFactory sessionFactory;
 
     @BeforeClass
@@ -35,7 +35,9 @@ public class HbConnectionTest {
     public void testHbConnection(){
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        List <GroupObjects> result = session.createQuery("from GroupObject").list();
+        List<GroupObjects> result = session.createQuery("from GroupObjects").list();
+        //session.getTransaction().commit();
+        //session.close();
         for ( GroupObjects group : result ) {
             System.out.println(group);
         }
@@ -43,4 +45,3 @@ public class HbConnectionTest {
         session.close();
     }
 }
-*/

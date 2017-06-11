@@ -25,7 +25,6 @@ public class ContactObjectsGenerator {
     
     @Parameter (names = "-o", description = "Objects file")
     public String format;
-
     public static void main(String[] args) throws IOException {
         ContactObjectsGenerator generator = new ContactObjectsGenerator();
         JCommander jCommander = new JCommander(generator);
