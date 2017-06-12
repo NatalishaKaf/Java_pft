@@ -138,6 +138,8 @@ public class ContactHelper extends HelperBase {
 
     public void deleteContactInGroup(GroupObjects group) {
         new Select(wd.findElement(By.name("group"))).selectByValue(String.format("%s", group.getId()));
+        //wd.findElements(By.name("selected[]")).size();
+        isElementPresent(By.name("selected[]"));
         click(By.name("remove"));
     }
 
