@@ -37,17 +37,9 @@ public class ContactModificationTests extends TestBase {
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.db().contacts();
         Assert.assertEquals(after.size(), before.size());
-
-        //before.remove(modifyContacts);
-        //before.add(contact);
-       /* Comparator<? super ContactObjects> byId= (b1, b2) -> Integer.compare(b1.getId(), b2.getId());
-        before.sort(byId);
-        after.sort(byId);*/
-       // Assert.assertEquals(before,after);
         assertThat(after, equalTo(before.withOut(modifyContacts).withAdded(contact)));
+        verifyContactListInUi();
 
     }
-
-
 
 }

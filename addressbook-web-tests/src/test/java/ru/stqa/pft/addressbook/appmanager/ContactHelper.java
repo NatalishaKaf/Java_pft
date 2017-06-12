@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactObjects;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupObjects;
 
 import java.util.List;
 
@@ -35,15 +36,16 @@ public class ContactHelper extends HelperBase {
         type(By.name("email"), contactObjects.getEmail());
         attach(By.name("photo"), contactObjects.getPhoto());
 
-        if (creation) {
-            if (contactObjects.getGroup() != null){
-                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroup());
-            }
-            } else {
-                Assert.assertFalse(isElementPresent(By.name("new_group")));
-            }
+        if(creation) {
+           /* if (contactObjects.getGroups().size() > 0) {
+                Assert.assertTrue(contactObjects.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroups()
+                        .iterator().next().getName());
+            }*/
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
-
+    }
 
     public void SubmitContactCreation() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
@@ -60,7 +62,6 @@ public class ContactHelper extends HelperBase {
     public void initContactModificationById(int id) {
         wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
     }
-
     public void modifyContacts(ContactObjects contact) {
         SelectContactById(contact.getId());
         initContactModificationById(contact.getId());
@@ -82,7 +83,6 @@ public class ContactHelper extends HelperBase {
         goToHome();
 
     }
-
 
     public void submitDeleteContact() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
@@ -120,6 +120,26 @@ public class ContactHelper extends HelperBase {
         }
         click(By.linkText("home"));
     }
+    public void selectById(int id) {
+        wd.findElement(By.cssSelector(String.format("input[value='%s']", id))).click();
+    }
+
+    public void addContactInGroup(ContactObjects contactObjects){
+        selectById(contactObjects.getId());
+        if (contactObjects.getGroups().size() > 0){
+            Assert.assertTrue(contactObjects.getGroups().size() == 1);
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactObjects.getGroups()
+                    .iterator().next().getName());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+        wd.findElement(By.name("add")).click();
+    }
+
+    public void deleteContactInGroup(GroupObjects group) {
+        new Select(wd.findElement(By.name("group"))).selectByValue(String.format("%s", group.getId()));
+        click(By.name("remove"));
+    }
 
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
@@ -146,7 +166,6 @@ public class ContactHelper extends HelperBase {
             String email = cells.get(4).getText();
             //int id = Integer.parseInt(elements.get(0).findElement(By.cssSelector("input")).getAttribute("value"));
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            //ContactObjects contact =
             contactCache.add(new ContactObjects().withId(id).withFirstname(firstname).withLastname(lastname).withPhones(phones)
                     .withAddress(addresss).withEmail(email));
         }
@@ -173,13 +192,7 @@ public class ContactHelper extends HelperBase {
        wd.findElement(By.xpath(String.format("//input[@va;ue='%s']/../../td[8]/a", id)));
 
     }
-   //*/ private void initContactModificationById(int id) {
-      //  wd.findElement(By.xpath(String.format("//input[@va;ue='%s']/../../td[8]/a", id)));
-        /*WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value= '%s']", id)));
-        WebElement row = checkbox.findElement(By.xpath("./../.."));
-        List<WebElement> cells = row.findElements(By.tagName("td"));
-        cells.get(7).findElement(By.tagName("a")).click();
-*/
-    //}*/
+
+
 }
 

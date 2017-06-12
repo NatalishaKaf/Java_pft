@@ -25,6 +25,7 @@ public class ContactEmailTests extends TestBase  {
         ContactObjects contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
         assertThat(contact.getEmail(), equalTo(contactInfoFromEditForm.getEmail()));
+        verifyContactListInUi();
     }
 
 }

@@ -26,7 +26,6 @@ public class GroupModificationTests extends TestBase {
     public void testGroupModification() {
         Groups before = app.db().groups();
         GroupObjects modifiedGroup = before.iterator().next();
-       // int index = before.size()-1;
         GroupObjects group = new GroupObjects().withId(modifiedGroup.getId()).withName("GroupName").
                 withHeader("GroupHeader").withFooter("GroupFooter");
         app.goTo().groupPage();
@@ -34,6 +33,7 @@ public class GroupModificationTests extends TestBase {
         assertThat(app.group().count(), equalTo(before.size()));
         Groups after = app.db().groups();
         assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
+        verifyGroupListInUi();
 
     }
 

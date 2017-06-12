@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 
+import org.apache.bcel.generic.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -67,7 +68,12 @@ public class GroupHelper extends HelperBase {
         returnGroupPage();
     }
 
+    /*public void deleteContactFromGroup(GroupObjects groups){
 
+        new Select(wd.findElement(By.name("group"))).selectByValue(groups.getName());
+
+    }
+*/
     public void create(GroupObjects group) {
         initGroupCreation();
         fillGroupForm(group);
@@ -102,3 +108,7 @@ public class GroupHelper extends HelperBase {
 
 
 }
+
+  /*  public void initContactModificationById(int id) {
+        wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+    }*/

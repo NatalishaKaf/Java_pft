@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table (name= "addressbook")
 public class ContactObjects {
@@ -31,8 +34,6 @@ public class ContactObjects {
     private  String home;
     @Type(type= "text")
     private  String email;
-    @Transient
-    private  String group;
     @Column (name= "home")
     @Type(type= "text")
     private  String homePhone;
@@ -50,6 +51,11 @@ public class ContactObjects {
     @Type(type= "text")
     private  String photo;
 
+    @ManyToMany (fetch = FetchType.EAGER )
+    @JoinTable (name= "address_in_groups",
+            joinColumns = @JoinColumn (name="id"),inverseJoinColumns = @JoinColumn(name="group_id"))
+    private Set<GroupObjects> groups =new HashSet<GroupObjects>();
+
 
     public File getPhoto() {
         if (photo !=  null) {
@@ -63,7 +69,6 @@ public class ContactObjects {
         this.photo = photo.getPath();
         return this;
     }
-
 
     public void setId(int id) {
         this.id = id;
@@ -119,10 +124,6 @@ public class ContactObjects {
         return this;
     }
 
-    public ContactObjects withGroup(String group) {
-        this.group = group;
-        return this;
-    }
     public ContactObjects withHomePhone(String homePhone) {
         this.homePhone = homePhone;
         return this;
@@ -174,10 +175,6 @@ public class ContactObjects {
         return email;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
     public String getHomePhone() {
         return homePhone;
     }
@@ -195,6 +192,10 @@ public class ContactObjects {
     public ContactObjects withPhones(String phones) {
         this.phones = phones;
         return this;
+    }
+
+    public Groups getGroups() {
+        return new Groups (groups);
     }
 
 
