@@ -5,10 +5,7 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.sun.xml.internal.org.jvnet.staxex.XMLStreamWriterEx;
 import ru.stqa.pft.addressbook.model.GroupObjects;
-
-import javax.xml.stream.XMLStreamConstants;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
