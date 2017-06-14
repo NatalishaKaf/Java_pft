@@ -205,9 +205,13 @@ public class ContactObjects {
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", phones='" + phones + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", workPhone='" + workPhone + '\'' +
+                ", mobilPhone='" + mobilPhone + '\'' +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -218,7 +222,12 @@ public class ContactObjects {
 
         if (id != that.id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-        return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+        if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
+        if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (phones != null ? !phones.equals(that.phones) : that.phones != null) return false;
+        if (homePhone != null ? !homePhone.equals(that.homePhone) : that.homePhone != null) return false;
+        if (workPhone != null ? !workPhone.equals(that.workPhone) : that.workPhone != null) return false;
+        return mobilPhone != null ? mobilPhone.equals(that.mobilPhone) : that.mobilPhone == null;
     }
 
     @Override
@@ -226,7 +235,11 @@ public class ContactObjects {
         int result = id;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (phones != null ? phones.hashCode() : 0);
+        result = 31 * result + (homePhone != null ? homePhone.hashCode() : 0);
+        result = 31 * result + (workPhone != null ? workPhone.hashCode() : 0);
+        result = 31 * result + (mobilPhone != null ? mobilPhone.hashCode() : 0);
         return result;
     }
-
 }

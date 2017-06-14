@@ -1,3 +1,4 @@
+/*
 package ru.stqa.pft.addressbook.tests;
 
 
@@ -42,3 +43,4 @@ public class ContactInGroupAddTests extends TestBase {
     }
 
 }
+*/

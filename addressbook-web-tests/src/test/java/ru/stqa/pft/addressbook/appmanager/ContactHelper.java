@@ -189,6 +189,21 @@ public class ContactHelper extends HelperBase {
                 .withHomePhone(home).withMobilPhone(mobile).withWorkPhone(work). withAddress(address).withEmail(email);
 
     }
+    public String contactObjectfromDetailsForm(ContactObjects contact) {
+
+        viewContactInfo(contact);
+
+        String contactDetails = wd.findElement(By.id("content")).getText();
+
+        return contactDetails;
+
+    }
+
+    private void viewContactInfo(ContactObjects contact) {
+
+        wd.findElement(By.xpath(String.format("//a[contains(@href, 'view.php?id=%d')]", contact.getId()))).click();
+
+    }
 
     private void initContactModificationByIdA (int id) {
        wd.findElement(By.xpath(String.format("//input[@va;ue='%s']/../../td[8]/a", id)));
