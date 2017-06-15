@@ -193,9 +193,18 @@ public class ContactObjects {
         this.phones = phones;
         return this;
     }
+    public ContactObjects inGroup(GroupObjects group) {
+        groups.add(group);
+        return this;
+    }
 
     public Groups getGroups() {
         return new Groups (groups);
+    }
+
+    public ContactObjects withGroups(Set<GroupObjects> groups) {
+        this.groups = groups;
+        return this;
     }
 
 
@@ -242,4 +251,5 @@ public class ContactObjects {
         result = 31 * result + (mobilPhone != null ? mobilPhone.hashCode() : 0);
         return result;
     }
+
 }

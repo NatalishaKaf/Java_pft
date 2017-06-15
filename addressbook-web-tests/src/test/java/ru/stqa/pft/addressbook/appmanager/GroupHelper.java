@@ -107,6 +107,12 @@ public class GroupHelper extends HelperBase {
     }
 
 
+    public void deleteContactInGroup(GroupObjects group) {
+        new org.openqa.selenium.support.ui.Select(wd.findElement(By.name("group"))).selectByValue(String.format("%s", group.getId()));
+        isElementPresent(By.name("selected[]"));
+        click(By.name("remove"));
+    }
+
 }
 
   /*  public void initContactModificationById(int id) {

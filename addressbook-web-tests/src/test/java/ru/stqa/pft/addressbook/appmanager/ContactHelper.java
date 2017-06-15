@@ -210,6 +210,20 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    private void addToSelectedGroup() {
+        click(By.name("add"));
+    }
+    private void selectGroupInList(ContactObjects contactObjects) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(contactObjects.getGroups()
+                .iterator().next().getName());
+
+    }
+
+    public void addToGroup(ContactObjects contact) {
+        SelectContactById(contact.getId());
+        selectGroupInList(contact);
+        addToSelectedGroup();
+    }
 
 }
 

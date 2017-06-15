@@ -74,6 +74,11 @@ public class GroupObjects {
         return footer;
     }
 
+    public GroupObjects withContacts(Set<ContactObjects> contacts) {
+        this.contacts = contacts;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
